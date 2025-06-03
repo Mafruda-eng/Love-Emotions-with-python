@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle, Polygon, Circle
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 8)
+ax.axis('off')  # Hide axes
+
+envelope = Rectangle((2, 1), 6, 5, facecolor='#f8a5a5', edgecolor='#574b90', linewidth=2)
+ax.add_patch(envelope)
+
+lid_points = np.array([[2, 6], [5, 8.5], [8, 6]])
+lid = Polygon(lid_points, closed=True, facecolor='#f8a5a5', edgecolor='#574b90', linewidth=2)
+ax.add_patch(lid)
+
+lid2_points = np.array([[5, 8.5], [8, 6], [8, 4.5], [5, 6.5]])
+lid2 = Polygon(lid2_points, closed=True, facecolor='#f78fb3', edgecolor='#574b90', linewidth=1)
+ax.add_patch(lid2)
+
+card = Rectangle((2.5, 1.5), 5, 4, facecolor='white', edgecolor='#574b90', linewidth=1)
+ax.add_patch(card)
+
+heart_seal = Circle((5, 6.5), 0.5, facecolor='#e84393', edgecolor='#574b90', linewidth=1)
+ax.add_patch(heart_seal)
+
+ax.text(5, 5.5, "To the one Who Stole My Heart,", fontsize=12, color='#303952')
+ax.text(5, 5, "Every moment with you feels like a dream and i never want to wake up from.",
+        ha='center', va='center', fontsize=10, color='#303952')
+ax.text(5, 4, "Your smile my favorite view.Thank you for being my rock,my laughter",
+        ha='center', va='center', fontsize=10, color='#303952')
+ax.text(5, 3, "Happy Valentines Day!", ha='center', va='center',
+        fontsize=14, color='#e84393', weight='bold')
+
+ax.text(5, 7.5, "Happy", ha='center', va='center', fontsize=14, color='#e84393')
+ax.text(5, 7.1, "Valentine's", ha='center', va='center', fontsize=20, color='#e84393', weight='bold')
+ax.text(5, 6.7, "Day", ha='center', va='center', fontsize=14, color='#e84393')
+
+plt.tight_layout()
+plt.show()
